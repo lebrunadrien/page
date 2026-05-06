@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacances - Lebrunadrien</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <h1 class="logo">Lebrunadrien</h1>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="jeux.html" class="nav-link">Jeux</a></li>
+                <li><a href="vacances.html" class="nav-link active">Vacances</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="vacances-section">
+            <div class="vacances-content">
+                <h1 class="page-title">Mes Vacances</h1>
+                
+                <div class="photo-gallery">
+                    <div class="photo-card">
+                        <div class="photo-placeholder">
+                            <p>Photo 1</p>
+                            <p class="upload-hint">Cliquez pour uploader une photo</p>
+                        </div>
+                        <input type="file" class="photo-input" accept="image/*" id="photo1">
+                        <p class="photo-caption">Photo 1</p>
+                    </div>
+
+                    <div class="photo-card">
+                        <div class="photo-placeholder">
+                            <p>Photo 2</p>
+                            <p class="upload-hint">Cliquez pour uploader une photo</p>
+                        </div>
+                        <input type="file" class="photo-input" accept="image/*" id="photo2">
+                        <p class="photo-caption">Photo 2</p>
+                    </div>
+
+                    <div class="photo-card">
+                        <div class="photo-placeholder">
+                            <p>Photo 3</p>
+                            <p class="upload-hint">Cliquez pour uploader une photo</p>
+                        </div>
+                        <input type="file" class="photo-input" accept="image/*" id="photo3">
+                        <p class="photo-caption">Photo 3</p>
+                    </div>
+
+                    <div class="photo-card">
+                        <div class="photo-placeholder">
+                            <p>Photo 4</p>
+                            <p class="upload-hint">Cliquez pour uploader une photo</p>
+                        </div>
+                        <input type="file" class="photo-input" accept="image/*" id="photo4">
+                        <p class="photo-caption">Photo 4</p>
+                    </div>
+                </div>
+
+                <div class="gallery-info">
+                    <p>💡 Conseil: Cliquez sur les carrés pour sélectionner vos photos de vacances</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 Lebrunadrien. Tous droits réservés.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
