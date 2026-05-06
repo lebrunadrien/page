@@ -21,7 +21,7 @@ body::before {
     right: 0;
     width: 100%;
     height: 100%;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%231e3c72;stop-opacity:0.3" /><stop offset="100%" style="stop-color:%232a5298;stop-opacity:0.1" /></linearGradient><linearGradient id="mountain" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" style="stop-color:%23d4a574;stop-opacity:0.8" /><stop offset="50%" style="stop-color:%23f5f5f5;stop-opacity:0.9" /><stop offset="100%" style="stop-color:%23ffffff;stop-opacity:1" /></linearGradient></defs><rect fill="url(%23sky)" width="1200" height="800"/><circle cx="600" cy="150" r="80" fill="%23ffd700" opacity="0.4"/><polygon points="600,250 300,700 900,700" fill="url(%23mountain)" opacity="0.9"/><polygon points="600,250 350,650 850,650" fill="%23f0f0f0" opacity="0.7"/><polygon points="600,280 400,650 800,650" fill="%23ffffff" opacity="0.5"/><circle cx="550" cy="350" r="15" fill="%23ffffff" opacity="0.6"/><circle cx="650" cy="320" r="12" fill="%23ffffff" opacity="0.5"/><path d="M 200 700 Q 300 680 400 700" stroke="%234a90e2" stroke-width="3" fill="none" opacity="0.3"/><path d="M 800 700 Q 900 680 1000 700" stroke="%234a90e2" stroke-width="3" fill="none" opacity="0.3"/></svg>') no-repeat bottom right;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style[...]
     background-size: contain;
     background-attachment: fixed;
     pointer-events: none;
@@ -42,6 +42,9 @@ body::before {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
@@ -49,6 +52,33 @@ body::before {
     font-size: 1.8rem;
     font-weight: 700;
     letter-spacing: 0.5px;
+}
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-bottom: 2px solid white;
 }
 
 /* Container */
@@ -96,6 +126,239 @@ body::before {
     font-weight: 500;
 }
 
+/* Game Section */
+.game-section {
+    width: 100%;
+    animation: fadeIn 1s ease-in;
+}
+
+.game-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(25, 118, 210, 0.15);
+}
+
+.page-title {
+    font-size: 2.5rem;
+    background: linear-gradient(135deg, #1976d2 0%, #0d47a1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 700;
+}
+
+.hangman-game {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+}
+
+.game-info {
+    text-align: center;
+    background: #f5f5f5;
+    padding: 1.5rem;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.hangman-display {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1976d2;
+    letter-spacing: 0.5rem;
+    margin-bottom: 1rem;
+    font-family: 'Courier New', monospace;
+}
+
+.guesses-left,
+.guessed-letters {
+    font-size: 1.1rem;
+    color: #333;
+    margin: 0.5rem 0;
+}
+
+.guessed-letters span,
+.guesses-left span {
+    font-weight: bold;
+    color: #d32f2f;
+}
+
+/* Keyboard Buttons */
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 600px;
+}
+
+.letter-btn {
+    padding: 0.7rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid #1976d2;
+    background-color: white;
+    color: #1976d2;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.letter-btn:hover:not(:disabled) {
+    background-color: #1976d2;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(25, 118, 210, 0.3);
+}
+
+.letter-btn:disabled {
+    background-color: #e3f2fd;
+    color: #9e9e9e;
+    border-color: #bdbdbd;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* Game Controls */
+.game-controls {
+    width: 100%;
+    text-align: center;
+}
+
+.btn-reset {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(25, 118, 210, 0.3);
+}
+
+.btn-reset:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(25, 118, 210, 0.4);
+}
+
+/* Game Message */
+.game-message {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    min-height: 2rem;
+    color: #d32f2f;
+}
+
+.game-message.success {
+    color: #4caf50;
+}
+
+/* Vacances Section */
+.vacances-section {
+    width: 100%;
+    animation: fadeIn 1s ease-in;
+}
+
+.vacances-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(25, 118, 210, 0.15);
+}
+
+/* Photo Gallery */
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.photo-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.photo-placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border: 3px dashed #1976d2;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.photo-placeholder:hover {
+    background: linear-gradient(135deg, #bbdefb 0%, #90caf9 100%);
+    border-color: #1565c0;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(25, 118, 210, 0.2);
+}
+
+.photo-placeholder p {
+    margin: 0.5rem 0;
+    color: #1976d2;
+    font-weight: 600;
+    text-align: center;
+}
+
+.upload-hint {
+    font-size: 0.9rem;
+    color: #999;
+    font-weight: normal;
+}
+
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.photo-input {
+    display: none;
+}
+
+.photo-caption {
+    text-align: center;
+    color: #666;
+    font-weight: 500;
+}
+
+/* Gallery Info */
+.gallery-info {
+    text-align: center;
+    background: #fff3e0;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #ff9800;
+}
+
+.gallery-info p {
+    color: #e65100;
+    font-weight: 500;
+    margin: 0;
+}
+
 /* Footer */
 .footer {
     background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
@@ -126,6 +389,15 @@ body::before {
 
 /* Responsive */
 @media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-menu {
+        gap: 1rem;
+    }
+
     .welcome-title {
         font-size: 2.5rem;
     }
@@ -145,6 +417,25 @@ body::before {
     .nav-container {
         padding: 0 1rem;
     }
+
+    .page-title {
+        font-size: 2rem;
+    }
+
+    .photo-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .keyboard {
+        grid-template-columns: repeat(auto-fit, minmax(35px, 1fr));
+        gap: 0.4rem;
+    }
+
+    .letter-btn {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -158,5 +449,31 @@ body::before {
 
     .container {
         padding: 1rem;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .nav-link {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+
+    .photo-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .hangman-display {
+        font-size: 1.8rem;
+    }
+
+    .keyboard {
+        grid-template-columns: repeat(6, 1fr);
     }
 }
