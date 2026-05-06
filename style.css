@@ -9,6 +9,23 @@ body {
     background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
     min-height: 100vh;
     color: #333;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Illustration Mont Fuji */
+body::before {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%231e3c72;stop-opacity:0.3" /><stop offset="100%" style="stop-color:%232a5298;stop-opacity:0.1" /></linearGradient><linearGradient id="mountain" x1="0%" y1="100%" x2="0%" y2="0%"><stop offset="0%" style="stop-color:%23d4a574;stop-opacity:0.8" /><stop offset="50%" style="stop-color:%23f5f5f5;stop-opacity:0.9" /><stop offset="100%" style="stop-color:%23ffffff;stop-opacity:1" /></linearGradient></defs><rect fill="url(%23sky)" width="1200" height="800"/><circle cx="600" cy="150" r="80" fill="%23ffd700" opacity="0.4"/><polygon points="600,250 300,700 900,700" fill="url(%23mountain)" opacity="0.9"/><polygon points="600,250 350,650 850,650" fill="%23f0f0f0" opacity="0.7"/><polygon points="600,280 400,650 800,650" fill="%23ffffff" opacity="0.5"/><circle cx="550" cy="350" r="15" fill="%23ffffff" opacity="0.6"/><circle cx="650" cy="320" r="12" fill="%23ffffff" opacity="0.5"/><path d="M 200 700 Q 300 680 400 700" stroke="%234a90e2" stroke-width="3" fill="none" opacity="0.3"/><path d="M 800 700 Q 900 680 1000 700" stroke="%234a90e2" stroke-width="3" fill="none" opacity="0.3"/></svg>') no-repeat bottom right;
+    background-size: contain;
+    background-attachment: fixed;
+    pointer-events: none;
+    z-index: 0;
 }
 
 /* Navigation */
@@ -43,6 +60,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 60vh;
+    position: relative;
+    z-index: 10;
 }
 
 /* Hero Section */
@@ -57,6 +76,7 @@ body {
     padding: 3rem;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(25, 118, 210, 0.15);
+    backdrop-filter: blur(10px);
 }
 
 .welcome-title {
@@ -84,6 +104,8 @@ body {
     padding: 2rem;
     margin-top: 3rem;
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 10;
 }
 
 .footer p {
